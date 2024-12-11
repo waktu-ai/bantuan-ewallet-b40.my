@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Akun</title>
+
+    <!-- my fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .container {
+        flex: 1;
+        padding: 50px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 16px;
+        margin-bottom: 25px;
+        line-height: 1.5;
+      }
+
+      .daftar-btn {
+        background-color: #4285f4;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .nav-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-around;
+        background-color: #4285f4;
+        color: #fff;
+        padding: 10px 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .nav-item a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-item i {
+        margin-bottom: 2px;
+        width: 20px;
+        height: 20px;
+      }
+
+      .nav-item span {
+        font-size: 12px;
+      }
+
+      @media (max-width: 480px) {
+        .navbar {
+          padding: 0 10px;
+        }
+
+        .navbar-logo {
+          width: 30px;
+          transform: scale(0.6);
+        }
+
+        .navbar-nav {
+          gap: 5px;
+          transform: scale(0.8);
+          font-size: 12px;
+        }
+
+        .navbar-nav {
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Daftar Untuk Melihat Akaun</h1>
+      <p>
+        Anda boleh mengakses menu Akaun, daftar sekarang untuk mengakses menu
+        Akaun gunakan telegram untuk mendaftar.
+      </p>
+      <a href="#" class="daftar-btn">Daftar sekarang</a>
+    </div>
+
+    <!-- Ganti footer dengan ini -->
+    <footer class="nav-footer">
+      <div class="nav-item">
+        <a href="index.html" style="text-decoration: none; color: inherit">
+          <i data-feather="home"></i>
+          <span>Home</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="withdraw.html" style="text-decoration: none; color: inherit">
+          <i data-feather="credit-card"></i>
+          <span>Withdraw</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="account.html" style="text-decoration: none; color: inherit">
+          <i data-feather="user"></i>
+          <span>Account</span>
+        </a>
+      </div>
+    </footer>
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
